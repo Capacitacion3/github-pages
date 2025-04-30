@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solusersa | Capacitación VIP</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(120deg, #001f3f, #0074D9);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .header {
+      background: #001f3f;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    }
+
+    .header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #00dffc;
+    }
+
+    .game-container {
+      max-width: 1100px;
+      margin: 30px auto;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 0 30px rgba(0, 223, 252, 0.3);
+    }
+
+    .profile-section {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #00dffc;
+      padding-bottom: 20px;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: url('https://i.imgur.com/VYx9eQl.png') center/cover no-repeat;
+      border: 4px solid #00dffc;
+    }
+
+    .user-info h2 {
+      margin: 0 0 5px;
+      color: #ffd700;
+    }
+
+    .progress-bar {
+      height: 20px;
+      background: #ffffff22;
+      border-radius: 15px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(to right, #ffcc00, #ff0066);
+      width: 70%;
+      animation: fillProgress 2s ease-out;
+    }
+
+    @keyframes fillProgress {
+      from { width: 0%; }
+      to { width: 70%; }
+    }
+
+    .section-box {
+      background: rgba(255,255,255,0.1);
+      border: 2px solid #ffffff44;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .section-box:hover {
+      background: rgba(255,255,255,0.15);
+      transform: scale(1.02);
+    }
+
+    .hidden-content {
+      display: none;
+      margin-top: 10px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .badges img {
+      width: 60px;
+      margin: 8px;
+      border-radius: 8px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .badges img:hover {
+      transform: scale(1.15) rotate(3deg);
+      filter: brightness(1.2);
+    }
+
+    .level-board {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+    }
+
+    .level-tile {
+      background: rgba(255,255,255,0.1);
+      border: 2px solid #00dffc;
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+
+    .level-tile:hover {
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #001f3f;
+      margin-top: 40px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🌟 Capacitación VIP Solusersa</h1>
+  <p>Transformamos el reclutamiento en una experiencia memorable.</p>
+</div>
+
+<div class="game-container">
+
+  <div class="profile-section">
+    <div class="avatar"></div>
+    <div class="user-info">
+      <h2>Bienvenido, Usuario VIP</h2>
+      <p>Nivel: 3 - Ejecutivo Ascendente</p>
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+      <p>Experiencia: 70 / 100</p>
+    </div>
+  </div>
+
+  <div class="section-box" onclick="toggleContent('missions')">
+    🎯 Misiones del Día
+    <div class="hidden-content" id="missions">
+      <p>✅ Finaliza la validación de CV para ganar 30 XP.</p>
+      <audio src="https://cdn.pixabay.com/audio/2022/03/15/audio_b1f900c8d0.mp3" autoplay></audio>
+    </div>
+  </div>
+
+  <div class="section-box" onclick="toggleContent('badges')">
+    🏅 Logros y Recompensas
+    <div class="hidden-content" id="badges">
+      <div class="badges">
+        <img src="https://cdn-icons-png.flaticon.com/512/2278/2278992.png" title="Líder del mes">
+        <img src="https://cdn-icons-png.flaticon.com/512/2278/2278996.png" title="Cazatalentos experto">
+        <img src="https://cdn-icons-png.flaticon.com/512/2278/2278977.png" title="100% Evaluaciones completadas">
+      </div>
+    </div>
+  </div>
+
+  <div class="section-box" onclick="toggleContent('levels')">
+    🗺️ Tablero de Niveles
+    <div class="hidden-content" id="levels">
+      <div class="level-board">
+        <div class="level-tile">Nivel 1<br><small>Iniciador</small></div>
+        <div class="level-tile">Nivel 2<br><small>Analista</small></div>
+        <div class="level-tile">Nivel 3<br><small>Ejecutivo</small></div>
+        <div class="level-tile">Nivel 4<br><small>Supervisor</small></div>
+        <div class="level-tile">Nivel 5<br><small>Gerente</small></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2025 Solusersa | Innovación en Reclutamiento
+</footer>
+
+<script>
+  function toggleContent(id) {
+    const el = document.getElementById(id);
+    el.style.display = el.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
+
+</body>
